@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRssFeedsTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateRssFeedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rss_feeds', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->jsonb('permissions')->default('{}');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateRssFeedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rss_feeds');
+        Schema::dropIfExists('roles');
     }
 }
