@@ -33,14 +33,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
 
     Route::get('dashboard', [
-        'uses' => 'Admin/AdminController@dashboard',
+        'uses' => 'Admin\AdminController@dashboard',
         'as' => 'admin.dashboard',     
     ]);
 
     Route::resource('users', 'Admin\UsersController');
 
-    Route::get('rssfeeds', 'EventsController@index')->name('feeds.index');
-    Route::get('rssfeeds', 'EventsController@index')->name('feeds.index');
 
     Route::get('rssfeeds', [
         'uses' => 'EventsController@index',
@@ -57,9 +55,24 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], funct
         'as' => 'feeds.store',     
     ]);
 
-    Route::post('rssfeeds/destroy', [
+    Route::post('rssfeeds/{id}/destroy', [
         'uses' => 'EventsController@destroy',
         'as' => 'feeds.destroy',     
+    ]);
+
+    Route::get('categories', [
+        'uses' => 'Admin\CategoriesController@index',
+        'as' => 'admin.category.index',     
+    ]);
+
+    Route::post('categories/store', [
+        'uses' => 'Admin\CategoriesController@store',
+        'as' => 'admin.category.store',     
+    ]);
+
+    Route::post('categories/{id}/store', [
+        'uses' => 'Admin\CategoriesController@destroy',
+        'as' => 'admin.category.destroy',     
     ]);
 
 

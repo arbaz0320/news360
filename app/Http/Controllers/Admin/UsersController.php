@@ -46,7 +46,19 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        
+        if($request->image) {
+            $destinationPath = public_path()."/assets/images/";
+            $extension =  $request->file('image')->getClientOriginalExtension();
+            $fileName = time();
+            $fileName .= rand(11111,99999).'.'.$extension; // renaming image
+            if(!$request->file('image')->move($destinationPath,$fileName))
+            {
+                throw new \Exception("Failed Upload");                    
+            }
+    
+            $picture = asset("assets/images")."/".$fileName;
+            $user->picture = $picture;
+        }
         $user->save();
 
         $role = DB::table('roles')->where('slug', 'user')->first();
@@ -86,15 +98,23 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user = User::findOrFail($user);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        
+        if($request->image) {
+            $destinationPath = public_path()."/assets/images/";
+            $extension =  $request->file('image')->getClientOriginalExtension();
+            $fileName = time();
+            $fileName .= rand(11111,99999).'.'.$extension; // renaming image
+            if(!$request->file('image')->move($destinationPath,$fileName))
+            {
+                throw new \Exception("Failed Upload");                    
+            }
+    
+            $picture = asset("assets/images")."/".$fileName;
+            $user->picture = $picture;
+        }
         $user->save();
-
-        $role = DB::table('roles')->where('slug', 'user')->first();
-        $user->roles()->attach($role->id);
 
         return redirect()->route('users.index');
     }
@@ -107,7 +127,6 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        $user = User::findOrFail($user);
         $user->delete();
         return redirect()->back();
     }

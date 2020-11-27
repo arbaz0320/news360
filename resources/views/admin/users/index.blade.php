@@ -39,14 +39,16 @@
                                     <tbody>
                                         @foreach ($users as $user)                                   
                                         <tr>
-                                            <td>{{$user->picture}}</td>
+                                            <td><img src="{{$user->picture}}" width="100px" alt="" class="img-fluid"></td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->created_at->format('d-m-Y')}}</td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="{{route('users.edit', $user->id)}}" class="btn btn-success btn-sm mr-2" >Edit</a>
-                                                    <form action="{{route('users.destroy', $user->id)}}">
+                                                    <form action="{{route('users.destroy', $user->id)}}" method="POST">
+                                                        @method('DELETE')
+                                                        @csrf
                                                         <button class="btn btn-danger btn-sm">Delete</button>
                                                     </form>
                                                 </div>
@@ -55,6 +57,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {{$users->links()}}
                             </div>
                         </div>
                     </div>

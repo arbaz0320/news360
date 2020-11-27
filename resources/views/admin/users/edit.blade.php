@@ -9,7 +9,7 @@
                 <h3>Edit Users</h3>
             </div>
             
-            <button class="btn btn-secondary mr-2" style="width: 150px"><b>Users List</b></button>
+            <a href="{{route('users.index')}}" class="btn btn-secondary mr-2" style="width: 150px"><b>Users List</b></a>
         </div>
 
         <div class="row layout-top-spacing">
@@ -22,7 +22,8 @@
                         <h5 class="">User Details</h5>
                     </div>
                     <div class="widget-content">
-                        <form action="{{route('users.update', $user->id)}}" method="POST">
+                        <form action="{{route('users.update', $user->id)}}" method="POST" enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
