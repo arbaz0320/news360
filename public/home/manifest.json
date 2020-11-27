@@ -1,0 +1,28 @@
+{
+	"name": "News360",
+	"icons": [
+		{
+			"src": "\/resources\/android-chrome-144x144.png",
+			"sizes": "144x144",
+			"type": "image\/png"
+		},{
+			"src": "\/resources\/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image\/png"
+		},{
+			"src": "\/resources\/android-chrome-256x256.png",
+			"sizes": "256x256",
+			"type": "image\/png"
+		}
+	],
+	"theme_color": "#3C4254",
+	"start_url": "/index.html",
+	"display": "standalone",
+	"prefer_related_applications": true,
+	"related_applications": [
+		{
+			"platform": "play",
+			"id": "com.news360.news360app"
+		}
+	]
+}

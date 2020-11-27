@@ -1,0 +1,21 @@
+
+@font-face {
+  font-family: 'gt walsheim';
+  src: url('gt_walsheim_lightd41d.eot?#iefix') format('embedded-opentype'),  url('gt_walsheim_light.woff') format('woff'), url('gt_walsheim_light.ttf')  format('truetype'), url('gt_walsheim_light.svg#GTWalsheimProLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gt walsheim';
+  src: url('gt_walsheimd41d.eot?#iefix') format('embedded-opentype'),  url('gt_walsheim.woff') format('woff'), url('gt_walsheim.ttf')  format('truetype'), url('gt_walsheim.svg#GTWalsheimProRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gt walsheim';
+  src: url('gt_walsheim_boldd41d.eot?#iefix') format('embedded-opentype'),  url('gt_walsheim_bold.woff') format('woff'), url('gt_walsheim_bold.ttf')  format('truetype'), url('gt_walsheim_bold.svg#GTWalsheimProBold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
