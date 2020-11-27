@@ -22,7 +22,11 @@
                         <h5 class="">User Details</h5>
                     </div>
                     <div class="widget-content">
+<<<<<<< HEAD
+                        <form action="{{route('users.store')}}" method="POST">
+=======
                         <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
+>>>>>>> 43d324ef1f119a7d6d21edf33d1cd35f2bcdf103
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">

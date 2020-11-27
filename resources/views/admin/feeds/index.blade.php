@@ -67,7 +67,10 @@
                                 <table id="zero-config" class="table table-hover" style="width:100%">
                                     <thead>
                                         <tr>
+<<<<<<< HEAD
+=======
                                             <th>Sr No.</th>
+>>>>>>> 43d324ef1f119a7d6d21edf33d1cd35f2bcdf103
                                             <th>Title</th>
                                             <th>Link</th>
                                             <th>Created At</th>
@@ -75,10 +78,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+<<<<<<< HEAD
+                                        @foreach ($feeds as $feed)                                   
+                                        <tr>
+=======
                                         <?php $i =1;  ?>
                                         @foreach ($feeds as $feed)                                   
                                         <tr>
                                             <td>{{$i++}}</td>
+>>>>>>> 43d324ef1f119a7d6d21edf33d1cd35f2bcdf103
                                             <td>{{$feed->title}}</td>
                                             <td>{{$feed->links}}</td>
                                             <td>{{$feed->created_at->format('d-m-Y')}}</td>

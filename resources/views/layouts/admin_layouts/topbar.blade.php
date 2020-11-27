@@ -59,6 +59,8 @@
                 </a>     
             </li>
 
+<<<<<<< HEAD
+=======
             <li class="menu single-menu">
                 <a href="{{route('admin.category.index')}}">
                     <div class="">
@@ -68,6 +70,7 @@
                 </a>     
             </li>
 
+>>>>>>> 43d324ef1f119a7d6d21edf33d1cd35f2bcdf103
         </ul>
     </nav>
 </div>

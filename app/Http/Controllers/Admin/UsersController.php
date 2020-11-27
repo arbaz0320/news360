@@ -46,18 +46,31 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+<<<<<<< HEAD
+        if($request->image1) {
+            $destinationPath = public_path()."/assets/coins/images/";
+            $extension =  $request->file('image1')->getClientOriginalExtension();
+            $fileName = time();
+            $fileName .= rand(11111,99999).'.'.$extension; // renaming image
+            if(!$request->file('image1')->move($destinationPath,$fileName))
+=======
         if($request->image) {
             $destinationPath = public_path()."/assets/images/";
             $extension =  $request->file('image')->getClientOriginalExtension();
             $fileName = time();
             $fileName .= rand(11111,99999).'.'.$extension; // renaming image
             if(!$request->file('image')->move($destinationPath,$fileName))
+>>>>>>> 43d324ef1f119a7d6d21edf33d1cd35f2bcdf103
             {
                 throw new \Exception("Failed Upload");                    
             }
     
+<<<<<<< HEAD
+            $picture = asset("assets/coins/images")."/".$fileName;
+=======
             $picture = asset("assets/images")."/".$fileName;
             $user->picture = $picture;
+>>>>>>> 43d324ef1f119a7d6d21edf33d1cd35f2bcdf103
         }
         $user->save();
 
@@ -101,6 +114,9 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+<<<<<<< HEAD
+        
+=======
         if($request->image) {
             $destinationPath = public_path()."/assets/images/";
             $extension =  $request->file('image')->getClientOriginalExtension();
@@ -114,6 +130,7 @@ class UsersController extends Controller
             $picture = asset("assets/images")."/".$fileName;
             $user->picture = $picture;
         }
+>>>>>>> 43d324ef1f119a7d6d21edf33d1cd35f2bcdf103
         $user->save();
 
         return redirect()->route('users.index');
