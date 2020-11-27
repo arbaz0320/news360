@@ -39,7 +39,11 @@
                                     <tbody>
                                         @foreach ($users as $user)                                   
                                         <tr>
+<<<<<<< HEAD
                                             <td>{{$user->picture}}</td>
+=======
+                                            <td><img src="{{$user->picture}}" width="100px" alt="" class="img-fluid"></td>
+>>>>>>> 43d324ef1f119a7d6d21edf33d1cd35f2bcdf103
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->created_at->format('d-m-Y')}}</td>
